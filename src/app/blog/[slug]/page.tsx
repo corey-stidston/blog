@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { PieChart } from '@/components/PieChart'
+import NavigationBar from '@/components/NavigationBar'
 
 export async function generateStaticParams() {
   const folder = path.join(process.cwd(), 'content/posts/')
@@ -31,6 +32,7 @@ export default async function Post({
 
   return (
     <article className="max-w-2xl mx-auto px-6 py-16">
+      <NavigationBar />
       <header className="mb-8">
         <h1 className="text-3xl font-bold mb-2">{matterResult.data.title}</h1>
         <p className="text-gray-600 dark:text-gray-400">
@@ -41,10 +43,10 @@ export default async function Post({
           })}
         </p>
       </header>
-      
+
       <div className="prose dark:prose-invert max-w-none">
-        <MDXRemote 
-          source={matterResult.content} 
+        <MDXRemote
+          source={matterResult.content}
           components={components}
         />
       </div>

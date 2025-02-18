@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link'
+import NavigationBar from '../components/NavigationBar'
 
 interface Post {
   slug: string
@@ -29,7 +30,7 @@ function getPostMetadata(): Post[] {
     }
   })
 
-  return posts.sort((a, b) => 
+  return posts.sort((a, b) =>
     new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
   )
 }
@@ -38,7 +39,8 @@ export default function Home() {
   const posts = getPostMetadata()
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-6 py-16">
+      <NavigationBar />
       <header className="mb-16">
         <h1 className="text-3xl font-bold mb-2">My Blog</h1>
         <p className="text-gray-600 dark:text-gray-400">
