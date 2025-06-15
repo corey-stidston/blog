@@ -34,27 +34,31 @@ export default async function Post({
   metadata.description = matterResult.data.description
 
   return (
-    <article className="max-w-2xl mx-auto px-6 py-16">
+    <div className="mt-10 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-gray-20 shadow-md">
       <BackButton />
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{matterResult.data.title}</h1>
-        <p className="text-gray-600">
-          {new Date(matterResult.data.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </p>
-      </header>
+      <article>
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold mb-2 text-primary">{matterResult.data.title}</h1>
+          <p className="text-primary pb-4 border-b border-gray-300">
+            {new Date(matterResult.data.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </p>
+        </header>
 
-      <div className="prose max-w-none">
-        <MDXRemote
-          source={matterResult.content}
-          components={components}
-        />
-      </div>
+        <div className="prose max-w-none">
+          <MDXRemote
+            source={matterResult.content}
+            components={components}
+          />
+        </div>
 
-      <BackButton />
-    </article>
+        <div className="mt-4">
+          <BackButton />
+        </div>
+      </article>
+    </div>
   )
 }

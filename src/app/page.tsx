@@ -38,7 +38,7 @@ export default function Home() {
   const posts = getPostMetadata()
 
   return (
-    <div className="mt-10 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-gray-100 shadow-lg">
+    <div className="mt-10 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-gray-20 shadow-md">
       <header className="mb-8">
         <h1 className="text-3xl font-bold mb-2 text-primary">My Blog</h1>
         <p className="text-primary border-b border-gray-300 pb-4">
