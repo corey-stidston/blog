@@ -2,7 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link'
-import NavigationBar from '../components/NavigationBar'
 
 interface Post {
   slug: string
@@ -40,7 +39,6 @@ export default function Home() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
-      <NavigationBar />
       <header className="mb-16">
         <h1 className="text-3xl font-bold mb-2 text-primary">My Blog</h1>
         <p className="text-primary dark:text-primary-dark">
