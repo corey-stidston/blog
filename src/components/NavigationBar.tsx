@@ -5,7 +5,7 @@ const NavigationBar: React.FC = () => {
     return (
         <nav className="fixed top-0 left-0 w-full p-4 bg-white">
             <ul className="flex justify-center space-x-4">
-                <li className="text-gray-600 dark:text-gray-400">
+                <li className="text-primary dark:text-primary-dark">
                     <Link href="/">Home</Link>
                 </li>
             </ul>

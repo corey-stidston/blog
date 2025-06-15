@@ -42,8 +42,8 @@ export default function Home() {
     <div className="max-w-3xl mx-auto px-6 py-16">
       <NavigationBar />
       <header className="mb-16">
-        <h1 className="text-3xl font-bold mb-2">My Blog</h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <h1 className="text-3xl font-bold mb-2 text-primary">My Blog</h1>
+        <p className="text-primary dark:text-primary-dark">
           Thoughts, ideas, and everything in between.
         </p>
       </header>
@@ -53,17 +53,17 @@ export default function Home() {
           {posts.map((post) => (
             <article key={post.slug} className="border-b border-gray-200 dark:border-gray-800 pb-8">
               <Link href={`/blog/${post.slug}`} className="block group">
-                <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                <h2 className="text-xl font-semibold mb-2 text-primary group-hover:text-secondary-light dark:group-hover:text-secondary-dark">
                   {post.frontMatter.title}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                <p className="text-primary dark:text-primary-dark text-sm mb-3">
                   {new Date(post.frontMatter.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
                   })}
                 </p>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-primary dark:text-primary-dark">
                   {post.frontMatter.description}
                 </p>
               </Link>

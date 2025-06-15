@@ -10,7 +10,7 @@ interface PieChartProps {
   colors?: string[];
 }
 
-const defaultColors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const defaultColors = ['#FFC300', '#013566', '#254D32', '#770058', '#ED1C24'];
 
 export function PieChart({ data, colors = defaultColors }: PieChartProps) {
   return (
