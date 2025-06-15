@@ -38,18 +38,16 @@ export default function Home() {
   const posts = getPostMetadata()
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
-      <header className="mb-16">
+    <div className="mt-10 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-background dark:bg-background-dark">
+      <header className="mb-8">
         <h1 className="text-3xl font-bold mb-2 text-primary">My Blog</h1>
-        <p className="text-primary dark:text-primary-dark">
-          Thoughts, ideas, and everything in between.
-        </p>
+        <p className="text-primary dark:text-primary-dark border-b border-gray-300 dark:border-gray-900 pb-4">
+          Thoughts, ideas, and everything in between.</p>
       </header>
-
       <main>
         <div className="space-y-8">
           {posts.map((post) => (
-            <article key={post.slug} className="border-b border-gray-200 dark:border-gray-800 pb-8">
+            <article key={post.slug} className="pb-8 p-6 rounded-lg bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               <Link href={`/blog/${post.slug}`} className="block group">
                 <h2 className="text-xl font-semibold mb-2 text-primary group-hover:text-secondary-light dark:group-hover:text-secondary-dark">
                   {post.frontMatter.title}
