@@ -8,4 +8,5 @@ export default withMdx({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   reactStrictMode: true,
   output: 'export',
+  transpilePackages: ['next-mdx-remote'],
 })
