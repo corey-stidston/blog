@@ -54,7 +54,7 @@ export default function Home() {
             />
           </div>
           <div>
-            <h1 className="text-2xl font-semibold mb-2 text-primary">blog.coreystidston.com</h1>
+            <h1 className="text-2xl font-semibold mb-2 text-primary">Corey&apos;s place</h1>
           </div>
         </div>
         <p className="text-primary">
