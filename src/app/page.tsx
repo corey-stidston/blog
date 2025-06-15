@@ -52,18 +52,6 @@ export default function Home() {
             <article key={post.slug} className="pb-8 p-6 rounded-lg bg-white hover:bg-gray-100 transition-colors">
               <Link href={`/blog/${post.slug}`} className="block group">
                 <div className="flex flex-col md:flex-row gap-4">
-                  {post.frontMatter.thumbnail && (
-                    <div className="md:w-1/3 relative h-48">
-                      <Image 
-                        src={post.frontMatter.thumbnail} 
-                        alt={post.frontMatter.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover rounded-md"
-                        priority
-                      />
-                    </div>
-                  )}
                   <div className="md:w-2/3">
                     <h2 className="text-xl font-semibold mb-2 text-primary group-hover:text-secondary-light">
                       {post.frontMatter.title}
@@ -79,6 +67,18 @@ export default function Home() {
                       {post.frontMatter.description}
                     </p>
                   </div>
+                  {post.frontMatter.thumbnail && (
+                    <div className="md:w-1/3 relative h-48">
+                      <Image 
+                        src={post.frontMatter.thumbnail} 
+                        alt={post.frontMatter.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover rounded-md"
+                        priority
+                      />
+                    </div>
+                  )}
                 </div>
               </Link>
             </article>

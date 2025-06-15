@@ -39,27 +39,32 @@ export default async function Post({
       <BackButton />
       <article>
         <header className="mb-8">
-          <h1 className="text-3xl font-bold mb-2 text-primary">{matterResult.data.title}</h1>
-          <p className="text-primary pb-4">
-            {new Date(matterResult.data.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </p>
-          {matterResult.data.thumbnail && (
-            <div className="mb-6 relative h-64">
-              <Image 
-                src={matterResult.data.thumbnail} 
-                alt={matterResult.data.title}
-                fill
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover rounded-lg"
-                priority
-              />
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-2/3">
+              <h1 className="text-3xl font-bold mb-2 text-primary">{matterResult.data.title}</h1>
+              <p className="text-primary">
+                {new Date(matterResult.data.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
+              <p className="text-primary mt-2">{matterResult.data.description}</p>
             </div>
-          )}
-          <div className="border-b border-gray-300 mb-4"></div>
+            {matterResult.data.thumbnail && (
+              <div className="md:w-1/3 relative h-48">
+                <Image 
+                  src={matterResult.data.thumbnail} 
+                  alt={matterResult.data.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover rounded-lg"
+                  priority
+                />
+              </div>
+            )}
+          </div>
+          <div className="border-b border-gray-300 my-4"></div>
         </header>
 
         <div className="prose max-w-none">
