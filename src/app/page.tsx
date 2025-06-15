@@ -42,9 +42,10 @@ export default function Home() {
   return (
     <div className="mt-4 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-gray-20 shadow-md">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-2 text-primary">blog.coreystidston.com</h1>
+        <h1 className="text-2xl font-semibold mb-2 text-primary">blog.coreystidston.com</h1>
         <p className="text-primary border-b border-gray-300 pb-4">
-          Covering topics on software design & development.</p>
+          Covering topics on software design & development. <a href="https://github.com/corey-stidston" className="underline" target="_blank" rel="noopener noreferrer">github.com/corey-stidston</a>
+        </p>
       </header>
       <main>
         <div className="space-y-8">
