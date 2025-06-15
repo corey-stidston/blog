@@ -5,6 +5,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { PieChart } from '@/components/PieChart'
 import { metadata } from '@/app/layout'
 import BackButton from '@/components/BackButton'
+import Image from 'next/image'
 
 export async function generateStaticParams() {
   const folder = path.join(process.cwd(), 'content/posts/')
@@ -39,13 +40,26 @@ export default async function Post({
       <article>
         <header className="mb-8">
           <h1 className="text-3xl font-bold mb-2 text-primary">{matterResult.data.title}</h1>
-          <p className="text-primary pb-4 border-b border-gray-300">
+          <p className="text-primary pb-4">
             {new Date(matterResult.data.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
             })}
           </p>
+          {matterResult.data.thumbnail && (
+            <div className="mb-6 relative h-64">
+              <Image 
+                src={matterResult.data.thumbnail} 
+                alt={matterResult.data.title}
+                fill
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                className="object-cover rounded-lg"
+                priority
+              />
+            </div>
+          )}
+          <div className="border-b border-gray-300 mb-4"></div>
         </header>
 
         <div className="prose max-w-none">

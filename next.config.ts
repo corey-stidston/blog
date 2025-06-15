@@ -9,4 +9,7 @@ export default withMdx({
   reactStrictMode: true,
   output: 'export',
   transpilePackages: ['next-mdx-remote'],
+  images: {
+    unoptimized: true,
+  },
 })
