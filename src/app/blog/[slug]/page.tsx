@@ -38,7 +38,7 @@ export default async function Post({
       <BackButton />
       <header className="mb-8">
         <h1 className="text-3xl font-bold mb-2">{matterResult.data.title}</h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600">
           {new Date(matterResult.data.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
@@ -47,7 +47,7 @@ export default async function Post({
         </p>
       </header>
 
-      <div className="prose dark:prose-invert max-w-none">
+      <div className="prose max-w-none">
         <MDXRemote
           source={matterResult.content}
           components={components}
