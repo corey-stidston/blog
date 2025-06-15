@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { PieChart } from '@/components/PieChart'
 import NavigationBar from '@/components/NavigationBar'
+import { metadata } from '@/app/layout'
 
 export async function generateStaticParams() {
   const folder = path.join(process.cwd(), 'content/posts/')
@@ -29,6 +30,8 @@ export default async function Post({
   const file = path.join(folder, `${slug}.mdx`)
   const content = fs.readFileSync(file, 'utf8')
   const matterResult = matter(content)
+  metadata.title = matterResult.data.title
+  metadata.description = matterResult.data.description
 
   return (
     <article className="max-w-2xl mx-auto px-6 py-16">
@@ -52,4 +55,4 @@ export default async function Post({
       </div>
     </article>
   )
-} 
+}
