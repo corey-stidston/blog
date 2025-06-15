@@ -40,10 +40,24 @@ export default function Home() {
   const posts = getPostMetadata()
 
   return (
-    <div className="mt-4 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-gray-20 shadow-md">
-      <header className="mb-8">
-        <h1 className="text-2xl font-semibold mb-2 text-primary">blog.coreystidston.com</h1>
-        <p className="text-primary border-b border-gray-300 pb-4">
+    <div className="mt-4 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-gray-20 shadow-md border-t">
+      <header className="mb-8 border-b border-gray-300 pb-4">
+        <div className="flex items-center gap-4 mb-1 pb-2">
+          <div>
+            <Image
+              src="/images/corey_stidston_profile.png"
+              alt="Corey Stidston Logo"
+              width={80}
+              height={80}
+              className="rounded-full border"
+              priority
+            />
+          </div>
+          <div>
+            <h1 className="text-2xl font-semibold mb-2 text-primary">blog.coreystidston.com</h1>
+          </div>
+        </div>
+        <p className="text-primary">
           Covering topics on software design & development. <a href="https://github.com/corey-stidston" className="underline" target="_blank" rel="noopener noreferrer">github.com/corey-stidston</a>
         </p>
       </header>
