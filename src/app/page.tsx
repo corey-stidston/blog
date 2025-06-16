@@ -61,7 +61,7 @@ export default function Home() {
         <div className="space-y-8">
           {posts.map((post) => (
             <article key={post.slug} className="pb-8 p-6 rounded-lg bg-white hover:bg-gray-100 transition-colors">
-              <Link href={`/blog/${post.slug}`} className="block group">
+              <Link href={`/posts/${post.slug}`} className="block group">
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="md:w-2/3">
                     <h2 className="text-xl font-semibold mb-2 text-primary group-hover:text-secondary-light">
