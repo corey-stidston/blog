@@ -3,17 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link'
 import Image from 'next/image'
-
-interface Post {
-  slug: string
-  frontMatter: {
-    title: string
-    date: string
-    description: string
-    thumbnail: string
-    tags: string[]
-  }
-}
+import { Post } from '@/types'
 
 function getPostMetadata(): Post[] {
   const folder = path.join(process.cwd(), 'content/posts/')

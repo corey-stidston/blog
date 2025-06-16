@@ -6,6 +6,7 @@ import { PieChart } from '@/components/PieChart'
 import { metadata } from '@/app/layout'
 import BackButton from '@/components/BackButton'
 import Image from 'next/image'
+import { PostFrontMatter } from '@/types'
 
 export async function generateStaticParams() {
   const folder = path.join(process.cwd(), 'content/posts/')
@@ -31,8 +32,10 @@ export default async function Post({
   const file = path.join(folder, `${slug}.mdx`)
   const content = fs.readFileSync(file, 'utf8')
   const matterResult = matter(content)
-  metadata.title = matterResult.data.title
-  metadata.description = matterResult.data.description
+  const frontMatter = matterResult.data as PostFrontMatter
+  
+  metadata.title = frontMatter.title
+  metadata.description = frontMatter.description
 
   return (
     <div className="mt-4 max-w-3xl mx-auto px-6 pt-8 pb-16 rounded-lg bg-gray-20 shadow-md">
@@ -41,21 +44,26 @@ export default async function Post({
         <header className="mb-8">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="md:w-2/3">
-              <h1 className="text-3xl font-bold mb-2 text-primary">{matterResult.data.title}</h1>
+              <h1 className="text-3xl font-bold mb-2 text-primary">{frontMatter.title}</h1>
               <p className="text-primary">
-                {new Date(matterResult.data.date).toLocaleDateString('en-US', {
+                {new Date(frontMatter.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
                 })}
               </p>
-              <p className="text-primary mt-2">{matterResult.data.description}</p>
+              <p className="text-primary mt-2 mb-4">{frontMatter.description}</p>
+              {frontMatter.tags.map((tag) => (
+                <span key={tag} className="inline-block bg-gray-200 text-gray-700 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">
+                  {tag}
+                </span>
+              ))}
             </div>
-            {matterResult.data.thumbnail && (
+            {frontMatter.thumbnail && (
               <div className="md:w-1/3 relative h-48">
                 <Image 
-                  src={matterResult.data.thumbnail} 
-                  alt={matterResult.data.title}
+                  src={frontMatter.thumbnail} 
+                  alt={frontMatter.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover rounded-lg"
