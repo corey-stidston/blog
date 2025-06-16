@@ -11,6 +11,7 @@ interface Post {
     date: string
     description: string
     thumbnail: string
+    tags: string[]
   }
 }
 
@@ -78,9 +79,14 @@ export default function Home() {
                         day: 'numeric',
                       })}
                     </p>
-                    <p className="text-primary">
+                    <p className="text-primary mb-4">
                       {post.frontMatter.description}
                     </p>
+                    {post.frontMatter.tags.map((tag) => (
+                      <span key={tag} className="inline-block bg-gray-200 text-gray-700 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                   {post.frontMatter.thumbnail && (
                     <div className="md:w-1/3 relative h-48">
