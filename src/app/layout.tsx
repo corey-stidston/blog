@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
-import { Inter } from 'next/font/google'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const figtree = Figtree({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-figtree",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Blog - Corey Stidston",
@@ -28,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${inter.className}`}
+        className={`${figtree.variable} antialiased font-figtree`}
       >
         {children}
       </body>

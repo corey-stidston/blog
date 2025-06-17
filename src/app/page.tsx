@@ -50,11 +50,11 @@ export default function Home() {
             />
           </div>
           <div>
-            <h1 className="text-2xl font-semibold mb-2 text-primary">Corey&apos;s place</h1>
+            <h1 className="text-2xl font-bold mb-2 text-primary">Corey&apos;s place</h1>
           </div>
         </div>
         <p className="text-primary">
-          Covering topics on software design & development. <a href="https://github.com/corey-stidston" className="underline" target="_blank" rel="noopener noreferrer">github.com/corey-stidston</a>
+          Covering topics on software and its intersection with society. <a href="https://github.com/corey-stidston" className="underline" target="_blank" rel="noopener noreferrer">github.com/corey-stidston</a>
         </p>
       </header>
       <main>

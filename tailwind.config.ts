@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        figtree: ['var(--font-figtree)'],
+      },
       colors: {
         primary: {
           DEFAULT: '#000814',
