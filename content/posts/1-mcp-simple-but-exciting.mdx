@@ -1,0 +1,34 @@
+---
+title: "MCP, simple but exciting"
+date: "2025-06-27"
+description: "If you haven't seen enough media on MCP, here's my super simple explanation of what an MCP server is and why it's simple but exciting."
+thumbnail: "/images/1-mcp-client-server-meme.jpg"
+tags: ["mcp", "llm", "integration"]
+---
+
+### 🤔 What is MCP and why is it exciting?
+
+MCP stands for Model Context Protocol and it's a standardised way to connect LLMs to different data sources and tools. Now, your AI assistant (e.g. Claude Desktop) can integrate with any number of tools to fetch real-time data (get the local weather), perform a task (create a calendar event), or talk to other LLMs (offloading a task to another agent). This is the exciting part.
+
+LLMs were already capable of doing this before MCP, but MCP brings the standardisation of this integration as a protocol (the simple part). This is significant because it allows for interoperability of LLMs and services, meaning any LLM can integrate with any service so long as they both comply with MCP. This is why we have seen the proliferation of [awesome MCP servers](https://mcpservers.org/) in the last few months.
+
+![MCP Client Server Handshake](/images/1-mcp-client-server-meme.jpg)
+
+### 🕍 MCP Architecture
+
+Components of MCP
+
+![MCP Client Server Example](/images/1-mcp-client-server-example.jpg)
+
+
+You can checkout this MCP server I built for Wordle - [mcp-wordle](https://github.com/corey-stidston/mcp-wordle) to see how this fits in with the diagram above. In my case, I built my own implementation of the game and this runs inside the MCP server but you could just as easily reach out via HTTP to a service hosted within your computer or on the internet.
+
+### 🎬 Conclusion
+
+Learning about MCP, it's hard to not get excited about the opportunities ahead and thankfully, for the time being, they still involve the human touch 😎
+
+### 🔗 Helpful resources
+
+- [Awesome MCP servers](https://mcpservers.org/)
+- [Model Context Protocol (MCP), clearly explained (why it matters) - YouTube](https://www.youtube.com/watch?v=7j_NE6Pjv-E&ab_channel=GregIsenberg)
+- [Model Context Protocol Documentation](https://modelcontextprotocol.io/introduction)
