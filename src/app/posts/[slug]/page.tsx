@@ -12,11 +12,9 @@ export async function generateStaticParams() {
   const folder = path.join(process.cwd(), 'content/posts/')
   const files = fs.readdirSync(folder)
   const markdownPosts = files.filter((file) => file.endsWith('.mdx'))
-  
-  // Filter out playground.mdx in production
   const filteredPosts = process.env.NODE_ENV === 'development' 
     ? markdownPosts 
-    : markdownPosts.filter(file => file !== 'playground.mdx')
+    : markdownPosts.filter(file => !file.startsWith('draft'))
 
   return filteredPosts.map((fileName) => ({
     slug: fileName.replace('.mdx', ''),
@@ -32,12 +30,7 @@ export default async function Post({
 }: {
   params: Promise<{ slug: string }>
 }) {
-  const { slug } = await params
-  
-  if (slug.startsWith('draft') && process.env.NODE_ENV !== 'development') {
-    throw new Error('Page not found')
-  }
-  
+  const { slug } = await params  
   const folder = path.join(process.cwd(), 'content/posts/')
   const file = path.join(folder, `${slug}.mdx`)
   const content = fs.readFileSync(file, 'utf8')
