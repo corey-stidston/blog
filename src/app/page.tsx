@@ -10,10 +10,9 @@ function getPostMetadata(): Post[] {
   const files = fs.readdirSync(folder)
   const markdownPosts = files.filter((file) => file.endsWith('.mdx'))
   
-  // Filter out playground.mdx in production
   const filteredPosts = process.env.NODE_ENV === 'development' 
     ? markdownPosts 
-    : markdownPosts.filter(file => file !== 'playground.mdx')
+    : markdownPosts.filter(file => !file.startsWith('draft'))
 
   const posts = filteredPosts.map((fileName) => {
     const fileContents = fs.readFileSync(

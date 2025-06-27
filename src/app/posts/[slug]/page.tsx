@@ -34,9 +34,7 @@ export default async function Post({
 }) {
   const { slug } = await params
   
-  // Prevent accessing playground.mdx in production
-  if (slug === 'playground' && process.env.NODE_ENV !== 'development') {
-    // This will trigger Next.js's 404 page
+  if (slug.startsWith('draft') && process.env.NODE_ENV !== 'development') {
     throw new Error('Page not found')
   }
   
