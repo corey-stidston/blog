@@ -22,14 +22,13 @@ LLMs were already capable of doing this before MCP, but MCP brings the standardi
 
 ### 🕍 MCP Architecture
 
-Components of MCP
-
+Components of MCP:
 - hosts, LLM-based AI tools like Claude Desktop.
 - clients, run inside hosts and connect to servers in a 1-to-1 relationship.
 - servers, lightweight programs that wrap capabilities offered by services.
 - services, existing tools or data sources that servers can integrate with e.g. local file system, or a weather service on the internet. This could be practically any technology that exists today.
 
-Here's a simplified example of how this works in practice:
+Here's an example of how this works in practice:
 1. you prompt your AI tool with an intention "get the current traffic conditions on the M1 freeway".
 2. the tool may ask whether your would like to use the traffic service.
 3. the tool communicates via it's client to the traffic server over MCP calling `get_current_traffic()`
