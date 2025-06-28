@@ -12,7 +12,13 @@ MCP stands for Model Context Protocol and it's a standardised way to connect LLM
 
 LLMs were already capable of doing this before MCP, but MCP brings the standardisation of this integration as a protocol (the simple part). This is significant because it allows for interoperability of LLMs and services, meaning any LLM can integrate with any service so long as they both comply with MCP. This is why we have seen the proliferation of [awesome MCP servers](https://mcpservers.org/) in the last few months.
 
-![MCP Client Server Handshake](/images/1-mcp-client-server-meme.jpg)
+<img 
+  src="/images/1-mcp-client-server-meme.jpg" 
+  alt="MCP client server meme" 
+  width="400" 
+  height="auto" 
+  style={{ display: 'block', margin: '0 auto' }}
+/>
 
 ### 🕍 MCP Architecture
 
@@ -30,7 +36,7 @@ Here's a simplified example of how this works in practice:
 4. the traffic server communicates to the traffic service, typically REST over HTTP.
 5. the response is provided as context to your AI tool which you can then interrogate.
 
-![MCP Client Server Example](/images/1-mcp-client-server-example.jpg)
+![MCP architecture diagram](/images/1-mcp-architecture-diagram.jpg)
 
 You might be asking "why can't the host talk to the services directly"? They can, but this would be a bespoke integration between LLM vendor ABC and service vendor XYZ. Which means no interoperability.
 
