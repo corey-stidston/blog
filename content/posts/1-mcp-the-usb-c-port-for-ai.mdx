@@ -1,21 +1,19 @@
 ---
-title: "MCP, simple but exciting"
+title: "MCP, the USB-C port for AI applications"
 date: "2025-06-27"
-description: "If you haven't already seen enough content on MCP, here's my brief explanation of what MCP is and why it's simple but exciting."
+description: "If you haven't already seen enough content on MCP, here's my brief explanation of what MCP is and why it's exciting. This article is intended for people who work in IT and want to keep up to date with advancements in LLMs."
 thumbnail: "/images/1-mcp-client-server-meme.jpg"
 tags: ["mcp", "llm", "integration"]
 ---
 
 ### 🤔 What is MCP and why is it exciting?
 
-MCP stands for Model Context Protocol and it's a standardised way to connect LLMs to different data sources and tools. Now your AI assistant (e.g. Claude Desktop) can integrate with any number of tools to fetch real-time data (e.g. get the local weather), perform a task (e.g. create a calendar event), or talk to other LLMs.
+MCP stands for Model Context Protocol and it's a standardised way to connect LLMs to different data sources and tools. Now you can power-up your AI assistant (e.g. Claude Desktop) to integrate with any number of services to fetch real-time data (e.g. get the local weather), perform a task (e.g. create a calendar event), or talk to other LLMs.
 
 In <a href="https://modelcontextprotocol.io/introduction" target="_blank" rel="noopener noreferrer">their own words</a>, Model Context Protocol is described as "the USB-C port for AI applications":
 > Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools.
 
-LLMs were already capable of integrating with external services before MCP, but MCP brings the standardisation of this integration as a protocol. It's a simple but significant milestone because it allows for interoperability of LLMs and services, meaning any LLM can integrate with any service so long as they both comply with MCP. 
-
-Additionally, MCP is open and accessible to all developers which means you can build MCP servers for your own needs. This is why we have seen the proliferation of <a href="https://mcpservers.org/" target="_blank" rel="noopener noreferrer">awesome MCP servers</a> in the last few months. Official SDKs and documentation are available which make it easy to get started. 
+LLMs were already capable of integrating with external services through bespoke integrations between LLM vendors and services. But standardisation of this opens the doors for developers and companies to build their own LLM integrations. This is why we have seen the proliferation of <a href="https://mcpservers.org/" target="_blank" rel="noopener noreferrer">awesome MCP servers</a> in the last few months.
 
 <img 
   src="/images/1-mcp-client-server-meme.jpg" 
@@ -36,17 +34,20 @@ Components of MCP:
 ![MCP architecture diagram](/images/1-mcp-architecture-diagram.jpg)
 
 Here's an example of how this works in practice:
+_Prerequisite: You've setup a connection to the MCP traffic server_
 1. You prompt your AI tool with an intention "get the current traffic conditions on the M1 freeway".
 2. The tool may ask whether your would like to use the traffic service.
 3. The tool communicates via it's client to the traffic server over MCP calling `get_current_traffic()`.
 4. The traffic server communicates to the traffic service, typically REST over HTTP.
 5. The response is provided as context to your AI tool which you can then interrogate.
 
-You might be asking "why can't the host talk to the services directly"? They can, but this would require a bespoke integration between each LLM vendor and every service provider, resulting in a lack of interoperability and significant maintenance overhead.
+You might be asking "why can't the host talk to the services directly"? They could, but this would require a bespoke integration between the LLM vendor and Traffic service, resulting in a lack of interoperability and significant maintenance overhead.
 
-Additionally, services on the internet have a high degree of variance in terms of request/response formats, error handling and authentication making direct integration complex and difficult to reuse. MCP solves this by acting as a simplified layer between an LLM and a service which allows the LLM to communicate in a language it understands.
+Additionally, direct integration is complex and difficult to reuse because of the high variance in services on the internet (in terms of request/response formats, error handling and authentication). MCP solves this by acting as a simplified layer between an LLM and a service which allows the LLM to communicate in a language it understands.
 
 You can checkout a working example of an MCP server I built for Wordle, <a href="https://github.com/corey-stidston/mcp-wordle" target="_blank" rel="noopener noreferrer">mcp-wordle</a>, to see how this fits in with the diagram above. In my case, the Wordle game runs inside the MCP server but this could just as easily be a seperate service hosted within your computer or on the internet.
+
+If you are interested in building your own MCP server, I found it was easy to get started using the [official Python SDK for MCP](https://github.com/modelcontextprotocol/python-sdk).
 
 Thanks for reading 🐢
 
